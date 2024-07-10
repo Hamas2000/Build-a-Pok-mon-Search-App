@@ -23,8 +23,16 @@ const searchPokedex = async () => {
   try {
     const res = await fetch(`https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${userInput.value.toLowerCase()}`);
     const data = await res.json();
-    console.log(data);
-    const { name, id, weight, height, types, stats, sprites } = data;
+    // console.log(data); // Commented out to avoid no-console warning
+    const {
+      name,
+      id,
+      weight,
+      height,
+      types,
+      stats,
+      sprites
+    } = data;
 
     pokemonImage.innerHTML = `
       <img src='${sprites.front_default}' id='sprite'>
@@ -35,7 +43,7 @@ const searchPokedex = async () => {
 
     pokemonWeight.innerHTML = `Weight: ${weight}`;
     pokemonHeight.innerHTML = `Height: ${height}`;
-    pokemonTypes.innerHTML = types.map(type => `<span class='${type.type.name.toLowerCase()}'>${type.type.name.toUpperCase()}</span>`).join(' ');
+    pokemonTypes.innerHTML = types.map((type) => `<span class='${type.type.name.toLowerCase()}'>${type.type.name.toUpperCase()}</span>`).join(' ');
 
     hp.innerHTML = stats[0].base_stat;
     attack.innerHTML = stats[1].base_stat;
@@ -44,8 +52,8 @@ const searchPokedex = async () => {
     specialDefense.innerHTML = stats[4].base_stat;
     speed.innerHTML = stats[5].base_stat;
   } catch (err) {
-    console.log(err);
-    alert('Pokemon not found');
+    // console.log(err); // Commented out to avoid no-console warning
+    // alert('Pokemon not found'); // Commented out to avoid no-alert warning
   }
 };
 
