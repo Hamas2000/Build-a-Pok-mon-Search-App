@@ -31,7 +31,7 @@ const searchPokedex = async () => {
       height,
       types,
       stats,
-      sprites
+      sprites,
     } = data;
 
     pokemonImage.innerHTML = `
