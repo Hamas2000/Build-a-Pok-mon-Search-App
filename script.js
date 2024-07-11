@@ -23,7 +23,6 @@ const searchPokedex = async () => {
   try {
     const res = await fetch(`https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${userInput.value.toLowerCase()}`);
     const data = await res.json();
-    // console.log(data); // Commented out to avoid no-console warning
     const {
       name,
       id,
